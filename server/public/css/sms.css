@@ -1,0 +1,274 @@
+#smsModal .modal-content,#smsModal  .modal-body {
+    background: transparent;
+    border: none;
+}
+
+#messageSent .modal-title, #messageSent .modal-body {
+    text-align: center;
+}
+
+#messageSent .modal-footer123 {
+    text-align: center;
+    margin: 20px;
+}
+
+h3 {
+  text-align:center;
+  font-size:30px;
+  margin:20px 0px;
+}
+p {
+  text-align:center;
+  margin:0px;
+}
+
+.iphone {
+  background:#000004;
+  width:370px;
+  height:680px;
+  margin:50px auto;
+  overflow:hidden;
+  border-radius:30px;
+}
+.container-sms {
+  width: 350px;
+  height: 550px;
+  background: black;
+  padding: 2px;
+  display: flex;
+  flex-direction: column;
+  margin:30px auto;
+  margin-bottom:20px;
+}
+
+
+.header {
+  height: 17%;
+  width: 100%;
+  background: #f9f9f9;
+  position: relative;
+}
+
+.text {
+  height: 83%;
+  width: 100%;
+  position: relative;
+  background: #ffffff;
+}
+
+.not_bar {
+  height: 15px;
+  width: 100%;
+  background: #f9f9f9;
+  position: relative;
+}
+
+.profile {
+  height: 40px;
+  width: 40px;
+  border-radius: 100px;
+  font-size: 12px;
+  text-align: center;
+  margin: 10px auto;
+  background: url(https://assets.entrepreneur.com/content/16x9/822/20150406145944-dos-donts-taking-perfect-linkedin-profile-picture-selfie-mobile-camera-2.jpeg);
+  background-size: cover;
+  line-height: 100px;
+}
+
+.back {
+  height: auto;
+  position: absolute;
+  width: 30px;
+  font-size: 40px;
+  color: #319afc;
+  left: 10px;
+  bottom: 8px;
+}
+
+.info {
+  height: 20px;
+  width: 20px;
+  line-height: 20px;
+  border: 2px solid #319afc;
+  color: #319afc;
+  text-align: center;
+  border-radius: 100px;
+  position: absolute;
+  right: 15px;
+  bottom: 20px;
+}
+
+.sim {
+  height: 100%;
+  width: 50px;
+  font-size: 11px;
+  position: absolute;
+  left: 5px;
+  line-height: 17px;
+}
+
+.time {
+  height: 100%;
+  font-size: 12px;
+  text-align: center;
+}
+
+.wifi {
+  height: 70%;
+  width: 50px;
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  left: 45px;
+  margin: auto 1px;
+  background: url(http://www.freeiconspng.com/uploads/3d-black-wifi-icon-9.png) no-repeat;
+  background-size: contain;
+}
+
+.bat {
+  height: 200%;
+  width: 50px;
+  background-color: red;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
+  right: -15px;
+  margin: auto;
+  background: url(http://gazettereview.com/wp-content/uploads/2016/01/energy-supplements.png) no-repeat;
+  background-size: contain;
+}
+
+.text {
+  position: relative;
+  height: 50px;
+}
+.cam_icon {
+    width: 80px;
+    height: 50px;
+    background: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAADzklEQVRoQ+1ZXU7jMBD2tCKvy55gywkWTrDtCbbcoEjY4g04AfQElLfKRqI3oJwA9gTQE8CeYNtXR2RWE+wqLW3spA4/VSPlKeOxP8/MNz8BtiYPrAkOtgHy2SxZmUWEEGeI2AaA3SKgEfERAIZSym6RdcGBdDqd7a2trbuiAOYPTYDiOG4NBoOxD6DgQDjnPQA49tncJYOIl0qpE5ccfV8IhHP+kHejdFtKqb35DY6OjhpJkjz5bOwrU6vVdvr9/rNLfiEQIQS6Fkop36wVQpwzxs5cawt+70opSW/uM3MY8u8oisgtnAtdiqv6bslAa32ZjZ8pEM55hzF2AQDbVR0ipF5EHAPAgZRyOI0RAgEA1yE3ekdd+wQGDF0+fRVLLKDpcRzHO1BRgM7sh4h/GWNDRBwCwFgp9UgCnPNdRNwGgDZjjJLnj5KW7ALn/B4AfmUVIOKfer1OMcNeXl4G8999NyM9iHh+dXV177Pm8PCwCQDnRfdLCYBz/m/erbLcvUJuOJVS9giAYcPfdOuI2LA5yjAQ5Yih1vrWspAQgpLghQ94K0Ou9SZnaK2/W6UlgEySJGmTFSydI+KJKwYNC/UsrZJ1arUaMdI3H0ALgSDifb1ePzCudQ0ATR9lJJMkScuCKFNzZWssA+bOZ++FQHwWLpFJ3WlVJiTrEBORV/i6WTAgFNhKqWYV1a8QgljuZ94FBwNiXSownad1lo+LBQFCeUIp1VjVpZYlO3IxzvlzXp4JBSTtG6oodRDxQCk1cPU5QYBYt+KcU+amfBHsQcRbpVTb5V5BgCDiHpUdroasDDrbxFE5AwAPy3QEAWKbLJ+GrAwYH/0bIHNFZupaPnxfwiIjKeXuu7jWOgX7etAvY+xZSrljql0qy70qVg83m2itG6bmojFTo1LWyla9X7pEISBU+iulWsYq1BHmFnke1kiD3LTEuQNDkglCv5lDTcv4KIpWcbGsS3l1i6GBzDRWURSVscxIa92kuHCVJVmrBgdCTREi7mdaXbpRel0EMGGMUavbsyAA4MbVIuf27B7+6xShPl0pdUmCpry3Ix9iHhs/I0RMhw9xHA/tnIBzfgwA6eDC9wlukbmM/4iIpwXHQTS2LfRzyAa7s430vZUcufTWaUDHGJtkB3TkcnZAl5cnHGcYvcukMcBFuFR009nvilTp2qTq7ylVp78VhBAUiDdV71iR/tdpvFVu+m1iChdNVnSewmqJrjsz/0esCuNmxPlkoVVLjMIn81wwMrPiNN9M84jn4k8vFvz39Ech3gD5qJtftu/GIp/NIv8Boel5fKhdtWsAAAAASUVORK5CYII=) no-repeat center;
+    background-size: 35px 35px;
+  }
+  .send_dock {
+    position: absolute;
+    ;
+    bottom: 0px;
+    width: 100%;
+    height: auto;
+    display: flex;
+    background: #F9F9F9;
+    
+  }
+
+  #m_text {
+    border-radius: 20px;
+    border: 1px solid #ccc;
+    height: 140px;
+    width: 100%;
+    margin: 0px;
+    right: 0px;
+    float: right;
+    margin: 5px 5px;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    transition: all 0.3s ease-in-out;
+    
+  }
+  #m_text:focus {
+    outline: none;
+  }
+  .send_button {
+    height: 100%;
+    width: 100px;
+    text-align: center;
+    line-height: 50px;
+    text-decoration: bold;
+    cursor: pointer;
+  }
+
+.m_input {
+  height: auto;
+  width: auto;
+  position: realtive;
+  display: inline-block;
+  float: right;
+}
+
+.message_area {
+  width: 100%;
+  height: auto;
+  max-height: 407px;
+  background: #fff;
+  flex: 1;
+  display: block;
+  overflow-Y: hidden;
+  
+}
+
+.message_area div {
+    height: auto;
+    width: 100%;
+    display: block;
+    overflow: hidden;
+    
+}
+
+.message_area .sms_box {
+    height: auto;
+    max-width: 80%;
+    display: block;
+    background: #3EB4FB;
+    border-radius: 10px;
+    padding: 10px;
+    color: #fff;
+    font-size: 13px;
+    margin: 3px 10px;
+    float: right;
+    
+}
+
+.sms_box:hover {
+    background: #1ba8fc;
+  }
+
+  .message_area .rep {
+    float: left;
+    background: #E7E6EC;
+    color:#1C1B20;
+  }
+
+.home {
+  height:30px;
+  width:30px;
+  background:#000004;
+  margin:-10px auto;
+  border:1px solid #ccc;
+  border-radius:100px;
+  
+}
+
+.mic {
+  width:100%;
+  height:10px;
+  display:flex;
+  justify-content:center;
+  margin-top:30px;
+}
+
+.mic li {
+    display:block;
+    background:#ccc;
+    height:7px;
+    float:left;
+    border-radius:100px;
+    margin:7px;
+    
+}
+
+.prox {
+  width:8px;
+  
+}
+.grid {
+  width:70px;
+}
