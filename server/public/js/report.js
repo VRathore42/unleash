@@ -7,10 +7,12 @@ $(document).ready(function () {
             for (var j = 0, size = data[i].things.length; j < size; j++) {
                 tempData += data[i].things[j].name + " : " + data[i].things[j].quantity + " ";
             }
+            tempData += "DateTime: " + data[i].date.split('T')[0] + ' ' + data[i].date.split('T')[1].split('.')[0];
             locations.push({
                 "latitude": data[i].latitude,
                 "longitude": data[i].longitude,
-                "text": tempData
+                "text": tempData,
+                "date": data[i].date
             })
         }
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -75,7 +77,7 @@ $(document).ready(function () {
     function init() {
         $.ajax({
             type: "GET",
-            url: 'http://localhost:3001/api/v1/requirement',
+            url: 'http://think42.net/api/v1/requirement',
             success: success,
             dataType: 'json'
         });

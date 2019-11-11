@@ -40,7 +40,7 @@ $(document).ready(function () {
   $('#send_button').on('click', function() {
     $.ajax({
       type: "POST",
-      url: 'http://localhost:80/api/v1/requirement',
+      url: 'http://think42.net/api/v1/requirement',
       contentType: 'application/json',
       data: JSON.stringify(finalData),
       success: success,
@@ -90,7 +90,7 @@ $(document).ready(function () {
     // V2
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3001/api/v1/requirement',
+      url: 'http://think42.net/api/v1/requirement',
       contentType: 'application/json',
       data: JSON.stringify(finalData),
       success: success,
@@ -134,7 +134,7 @@ $(document).ready(function () {
     }
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3001/api/v1/requirement',
+      url: 'http://think42.net/api/v1/requirement',
       contentType: 'application/json',
       data: JSON.stringify(data),
       success: success,
