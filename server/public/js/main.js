@@ -40,7 +40,7 @@ $(document).ready(function () {
   $('#send_button').on('click', function() {
     $.ajax({
       type: "POST",
-      url: 'http://localhost:3001/api/v1/requirement',
+      url: 'http://localhost:80/api/v1/requirement',
       contentType: 'application/json',
       data: JSON.stringify(finalData),
       success: success,
@@ -51,11 +51,13 @@ $(document).ready(function () {
   })
 
   function getMessage() {
-    return "ID" + makeid(16) + '/' +
-    finalData.longitude + '/' +
-    finalData.latitude + '/' +
-    finalData.things.map(function(el) { return el.name[0].toUpperCase() + el.quantity;}).toString() + '/' +
-    new Date();
+    // return "ID" + makeid(16) + '/' +
+    // finalData.longitude + '/' +
+    // finalData.latitude + '/' +
+    // finalData.things.map(function(el) { return el.name[0].toUpperCase() + el.quantity;}).toString() + '/' +
+    // new Date();
+
+    return finalData.things.map(function(el) { return el.name[0].toUpperCase() + el.quantity;}).toString();
   }
 
   function makeid(length) {
