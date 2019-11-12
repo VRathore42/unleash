@@ -1,7 +1,10 @@
 $(document).ready(function () {
     function success(data) {
         var locations = [];
-        console.log(data);
+        var zommPos = {
+            lat: 0,
+            long: 0
+        }
         for (var i = 0, len = data.length; i < len; i++) {
             var tempData = "";
             for (var j = 0, size = data[i].things.length; j < size; j++) {
@@ -14,12 +17,16 @@ $(document).ready(function () {
                 "text": tempData,
                 "date": data[i].date
             })
+            if(locations.length > 0) {
+                zommPos.lat = locations[0].latitude;
+                zommPos.long = locations[0].longitude;
+                console.log(zommPos);
+            }
         }
         var map = new google.maps.Map(document.getElementById('map'), {
-            zoom: 10,
-            center: new google.maps.LatLng(0, 0),
+            zoom: 13,
+            center: new google.maps.LatLng(zommPos.lat, zommPos.long),
             mapTypeId: google.maps.MapTypeId.ROADMAP,
-            zoom: 1,
             minZoom: 1
         });
 
