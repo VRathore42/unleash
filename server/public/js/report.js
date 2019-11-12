@@ -83,7 +83,7 @@ $(document).ready(function () {
     function init() {
         $.ajax({
             type: "GET",
-            url: 'http://think42.net/api/v1/requirement',
+            url: 'http://think42.net/api/v1/requirement/all',
             success: success,
             dataType: 'json'
         });
