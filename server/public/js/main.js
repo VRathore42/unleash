@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function() {
   var finalValues = {
     water: 0,
     food: 0,
@@ -6,15 +6,39 @@ $(document).ready(function () {
     sanitation: 0
   };
   var finalData;
-  $('input[type=range]').change(function (evt) {
-    finalValues[$(evt.target).data('type')] = evt.target.value;
-    console.log(finalValues);
+  var textMessage = ''
+  var errorCount = 0;
+
+  $('#send_button').on('click', function() {
+    textMessage = $('#m_text').val().trim();
+
+    finalData = validateAndGetStructuredData(textMessage);
+    console.log(finalData);
+    // sendData();
   })
 
-  $('#createSms').on('click', function () {
-    console.log(finalValues);
+  function validateAndGetStructuredData() {
+    // FOR DATA
+    //w f m s
+    var partsMessage = getParts();
+    partsMessage.forEach(function(item) {
+      var pVal = getPartValue(item);
+      if(pVal != NaN) {
+        if(item.substring(0, 1).toUpperCase() == 'W') {
+          finalValues.water = pVal;
+        } else if(item.substring(0, 1).toUpperCase() == 'F') {
+          finalValues.food = pVal;
+        } else if(item.substring(0, 1).toUpperCase() == 'S') {
+          finalValues.sanitation = pVal;
+        } else if(item.substring(0, 1).toUpperCase() == 'M') {
+          finalValues.medicine = pVal;
+        }
+      }
+    })
+
+    // For coordinates
     var coords = getCoords();
-    finalData = {
+    return {
       "longitude": coords.longitude,
       "latitude": coords.latitude,
       "things": [{
@@ -31,71 +55,6 @@ $(document).ready(function () {
         "quantity": finalValues.water
       }]
     }
-    var message = getMessage();
-    $('#m_text').val(message);
-    
-    $('#smsModal').modal('show');
-  });
-
-  $('#send_button').on('click', function() {
-    $.ajax({
-      type: "POST",
-      url: 'http://think42.net/api/v1/requirement',
-      contentType: 'application/json',
-      data: JSON.stringify(finalData),
-      success: success,
-      error: onError,
-      dataType: 'json'
-    });
-    $('#smsModal').modal('hide');
-  })
-
-  function getMessage() {
-    // return "ID" + makeid(16) + '/' +
-    // finalData.longitude + '/' +
-    // finalData.latitude + '/' +
-    // finalData.things.map(function(el) { return el.name[0].toUpperCase() + el.quantity;}).toString() + '/' +
-    // new Date();
-
-    return finalData.things.map(function(el) { return el.name[0].toUpperCase() + el.quantity;}).toString();
-  }
-
-  function makeid(length) {
-    var result           = '';
-    var characters       = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    var charactersLength = characters.length;
-    for ( var i = 0; i < length; i++ ) {
-       result += characters.charAt(Math.floor(Math.random() * charactersLength));
-    }
-    return result;
- }
-
-
-  function success(data) {
-    console.log(data);
-    $('#messageSent').modal('show');
-  };
-
-  function onError() {
-    alert('oops try again one more time');
-  };
-
-  function sendSms() {
-    // V1
-    // if (navigator.geolocation) {
-    //   navigator.geolocation.getCurrentPosition(showPosition);
-    // }
-
-
-    // V2
-    $.ajax({
-      type: "POST",
-      url: 'http://think42.net/api/v1/requirement',
-      contentType: 'application/json',
-      data: JSON.stringify(finalData),
-      success: success,
-      dataType: 'json'
-    });
   }
 
   function getCoords() {
@@ -111,38 +70,44 @@ $(document).ready(function () {
     return Math.floor(Math.random() * (max - min)) + min; //The maximum is exclusive and the minimum is inclusive
   }
 
+  function validateSingleChars(myChar, message) {
+    
+  }
 
-  function showPosition(position) {
-    // x.innerHTML = "Latitude: " + position.coords.latitude + "<br>Longitude: " + position.coords.longitude;
-    console.log(position.coords);
-    var data = {
-      "longitude": position.coords.longitude,
-      "latitude": position.coords.latitude,
-      "things": [{
-        "name": "food",
-        "quantity": finalValues.food
-      }, {
-        "name": "medicine",
-        "quantity": finalValues.medicine
-      }, {
-        "name": "sanitation",
-        "quantity": finalValues.sanitation
-      }, {
-        "name": "water",
-        "quantity": finalValues.water
-      }]
+  function getPartValue(item) {
+    try {
+      return parseInt(item.substring(1));
+    } catch(error) {
+      console.log(error);
     }
+  }
+
+  function getParts() {
+    var p1 = textMessage.trim().split(',');
+    var p2 = p1.map(function(el) {
+      return el.trim();
+    })
+    return p2;
+  }
+
+  function sendData() {
     $.ajax({
       type: "POST",
       url: 'http://think42.net/api/v1/requirement',
       contentType: 'application/json',
-      data: JSON.stringify(data),
+      data: JSON.stringify(finalData),
       success: success,
+      error: onError,
       dataType: 'json'
     });
   }
 
-});
+  function success(data) {
+    console.log(data);
+    $('#messageSent').modal('show');
+  };
 
-
-
+  function onError() {
+    alert('oops try again one more time');
+  };
+})
