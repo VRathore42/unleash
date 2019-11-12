@@ -14,7 +14,8 @@ $(document).ready(function() {
 
     finalData = validateAndGetStructuredData(textMessage);
     console.log(finalData);
-    // sendData();
+    sendData();
+    $('#m_text').val('');
   })
 
   function validateAndGetStructuredData() {
