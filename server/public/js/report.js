@@ -18,9 +18,8 @@ $(document).ready(function () {
                 "date": data[i].date
             })
             if(locations.length > 0) {
-                zommPos.lat = locations[0].latitude;
-                zommPos.long = locations[0].longitude;
-                console.log(zommPos);
+                zommPos.lat = locations[locations.length - 1].latitude;
+                zommPos.long = locations[locations.length - 1].longitude;
             }
         }
         var map = new google.maps.Map(document.getElementById('map'), {
